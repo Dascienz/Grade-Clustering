@@ -146,15 +146,10 @@ def cluster_plot(save=False):
     plt.title("Grade Clusters", **font)
     plt.xlabel("Grade", **font)
     plt.ylabel("Variance", **font)
-    
-    groups = ["Withdrew/Dropped","Failed", "D/C","C/B-","B-/A","A/A+"]
-    colors = np.arange(len(centroids))
-    
     plt.scatter(x, y, edgecolor="white", s=150, c=labels)
     plt.scatter(centroids[:,0], centroids[:,1], 
                 marker="*", edgecolor="white", 
                 c=np.arange(len(centroids)), s=1250)
-    plt.legend(groups, colors, loc="best")
     plt.tight_layout()
     if save:
         plt.savefig("variance_grade.png", format="png", dpi=300)
